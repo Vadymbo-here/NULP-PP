@@ -1,5 +1,3 @@
-package jab1;
-
 /**
  * <h1>Hello, World!</h1>
  * <h2>java_hellow</h2>
