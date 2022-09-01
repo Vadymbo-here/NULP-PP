@@ -6,7 +6,7 @@ package jab1;
  * <p>
  * fib function is generating N-th Fibo number
  * </p>
- * 
+ * (Code GIT Hub version {@link https://github.com/Vadymbo-here/NULP-PP.git})
  * <p>
  * At main all other calculations are done
  * Like comparison values and etc.
@@ -41,7 +41,7 @@ class java_hellow {
          * It's iterrates through the all Fibo number up to N
          */
         for (int i = 1; i <= N; i++) {
-            Double temp = fibo(i);
+            double temp = fibo(i);
             System.out.println(temp);
             /**
              * Second loop in a main
