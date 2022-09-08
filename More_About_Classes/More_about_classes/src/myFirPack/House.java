@@ -10,6 +10,9 @@ public class House {
     private String street;
 
     public House() {
+        this.id = this.flatNumber = this.floor = this.rooms = 0;
+        this.square = 0.0;
+        this.street = "";
     }
 
     public House(int id, int flatNumber, double square, int floor, int rooms, String street) {
@@ -71,13 +74,13 @@ public class House {
 
     @Override
     public String toString() {
-        return "{" +
-                " id='" + getId() + "'" +
-                ", flatNumber='" + getFlatNumber() + "'" +
-                ", square='" + getSquare() + "'" +
-                ", floor='" + getFloor() + "'" +
-                ", rooms='" + getRooms() + "'" +
-                ", street='" + getStreet() + "'" +
-                "}";
+        return " -->" +
+                " Room[" + getId() + "]: " +
+                " flatNumber='" + getFlatNumber() + "' ," +
+                " square='" + getSquare() + "' ," +
+                " floor='" + getFloor() + "' ," +
+                " rooms='" + getRooms() + "' ," +
+                " street='" + getStreet() + "'" +
+                " <--";
     }
 }
