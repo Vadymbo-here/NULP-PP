@@ -5,5 +5,6 @@ Labaratory task code will be there.
 
 <ol>
   <li>Java basics - Done!</li>
-  <li>Work with clases - IN progress</li>
+  <li>Work with clases - Code Finished</li>
+  <li>Game Drone Battle - In progress...</li>
 </ol>

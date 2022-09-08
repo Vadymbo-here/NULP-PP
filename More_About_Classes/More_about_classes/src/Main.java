@@ -9,35 +9,34 @@ public class Main {
     public static void main(String[] args) {
 
         getInput();
-
-        for (House house : hArr) {
-            System.out.println(house);
-        }
         Scanner info = new Scanner(System.in);
-        System.out.print("Enter how many rooms you want: ");
-        showByRooms(info.nextInt());
-        System.out.print("Enter how many rooms you want and on which floors (min, max): ");
+        System.out.println("Enter minimum amount of rooms: ");
+        int asdasd = info.nextInt();
+        showByRooms(asdasd);
+        System.out.print("Enter minimum amount of rooms and range of floors(sep. by space): ");
         showByRoomsAndFloors(info.nextInt(), info.nextInt(), info.nextInt());
         System.out.print("Enter minimum square amount: ");
         showBySquare(info.nextDouble());
+        info.close();
     }
 
     public static void getInput() {
-        int tempId = 0;
-        int tempFlatNumber = 0;
-        double tempSquare = 0.0;
-        int tempFloor = 0;
-        int tempRooms = 0;
-        String tempStreet = "";
+        int tempId;
+        int tempFlatNumber;
+        double tempSquare;
+        int tempFloor;
+        int tempRooms;
+        String tempStreet;
 
         System.out.println("Welcome! Let's input house data.");
 
+        Scanner info = new Scanner(System.in);
         while (true) {
             System.out.println("Input ID(0 - stop input): ");
-            Scanner info = new Scanner(System.in);
             int temp = info.nextInt();
-            if (temp <= 0)
+            if (temp <= 0) {
                 break;
+            }
             tempId = temp;
             System.out.println("Enter a Flat Number: ");
             tempFlatNumber = info.nextInt();
@@ -49,7 +48,6 @@ public class Main {
             tempRooms = info.nextInt();
             System.out.println("Enter a Street adress: ");
             tempStreet = info.nextLine();
-
             hArr.add(new House(tempId, tempFlatNumber, tempSquare, tempFloor, tempRooms, tempStreet));
         }
     }
