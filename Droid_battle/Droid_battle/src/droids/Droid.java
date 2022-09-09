@@ -1,51 +1,35 @@
 package droids;
 
 public class Droid {
-    private String name;
-    private int health;
-    private int damage;
-    private int defence;
-    private int accuracy;
-    private int critChance;
+    protected String name;
+    protected int health;
+    protected int damage;
+    private int maxHealth;
 
-    public Droid(String name, int health, int damage, int defence, int accuracy, int critChance) {
+    public Droid(String name, int health, int damage) {
         this.name = name;
         this.health = health;
         this.damage = damage;
-        this.defence = defence;
-        this.accuracy = accuracy;
-        this.critChance = critChance;
+        this.maxHealth = health;
     }
 
     public boolean isAlive() {
-        return health > 0;
+        return this.health > 0;
     }
 
     public int getHit(int damage) {
-        int actualDamage = damage - this.defence;
 
-        if (actualDamage < 0) {
-            actualDamage = 0;
-        }
-
-        this.health -= actualDamage;
+        this.health -= damage;
 
         if (health < 0) {
             health = 0;
         }
 
-        return actualDamage;
+        return damage;
     }
 
     public int getDamage() {
-        int actualDamage = damage;
-        if (Math.random() < (double) this.critChance / 100) {
-            actualDamage *= 2;
-        }
-        if (Math.random() >= (double) this.accuracy / 100) {
-            actualDamage = 0;
-        }
-        return actualDamage;
+        return this.damage;
     }
 
     public String getName() {
@@ -61,39 +45,19 @@ public class Droid {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (this.health + health > this.maxHealth) {
+            this.health = maxHealth;
+        } else {
+            this.health = health;
+        }
     }
 
     public void setDamage(int damage) {
         this.damage = damage;
     }
 
-    public int getDefence() {
-        return this.defence;
-    }
-
-    public void setDefence(int defence) {
-        this.defence = defence;
-    }
-
-    public int getAccuracy() {
-        return this.accuracy;
-    }
-
-    public void setAccuracy(int accuracy) {
-        this.accuracy = accuracy;
-    }
-
-    public int getCritChance() {
-        return this.critChance;
-    }
-
-    public void setCritChance(int critChance) {
-        this.critChance = critChance;
-    }
-
     @Override
     public String toString() {
-        return name + " health = " + health;
+        return this.name + " health = [" + this.health + " / " + this.maxHealth + "]";
     }
 }

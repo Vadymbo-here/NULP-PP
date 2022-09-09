@@ -48,8 +48,8 @@ public class DuelController {
 
     private void printRoundInfo(int actualDamage) {
         System.out.println(defender.getName() + " get hit with " + actualDamage + " damage");
-        System.out.println("Defender " + defender);
-        System.out.println("Attacker " + attacker);
+        System.out.println("Defender: " + defender);
+        System.out.println("Attacker: " + attacker);
     }
 
     private void initFighters() {
