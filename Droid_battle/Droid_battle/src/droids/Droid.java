@@ -4,13 +4,13 @@ public class Droid {
     protected String name;
     protected int health;
     protected int damage;
-    private int maxHealth;
+    private String maxHealth;
 
     public Droid(String name, int health, int damage) {
         this.name = name;
         this.health = health;
         this.damage = damage;
-        this.maxHealth = health;
+        this.maxHealth = Integer.toString(health);
     }
 
     public boolean isAlive() {
@@ -45,11 +45,7 @@ public class Droid {
     }
 
     public void setHealth(int health) {
-        if (this.health + health > this.maxHealth) {
-            this.health = maxHealth;
-        } else {
-            this.health = health;
-        }
+        this.health = health;
     }
 
     public void setDamage(int damage) {

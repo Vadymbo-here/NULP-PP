@@ -14,6 +14,11 @@ public class Tank extends Droid {
 
     public int getHit(int damage) {
         int actualDamage = damage - (int) (protection * defKoef);
+
+        if (actualDamage < 0) {
+            actualDamage = 0;
+        }
+
         this.health -= actualDamage;
 
         if (health < 0) {

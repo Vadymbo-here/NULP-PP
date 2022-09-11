@@ -1,13 +1,15 @@
 package droidbattle;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import arenas.*;
-import controller.DuelController;
+import controller.*;
 import droids.*;
 
 public class DroidBattle {
-    public void battle() throws InterruptedException {
+    public void battle() throws InterruptedException, IOException {
         Droid droid1 = getDroidByPlayer();
         Droid droid2 = getDroidByPlayer();
         // choose arena: field , ..., ...
@@ -45,8 +47,22 @@ public class DroidBattle {
 
     }
 
-    public void partyBatlle() throws InterruptedException {
-        //
+    public void partyBatlle() throws InterruptedException, IOException {
+        ArrayList<Droid> FT = new ArrayList<>();
+        ArrayList<Droid> ST = new ArrayList<>();
+        FT.add(getDroidByPlayer());
+        FT.add(getDroidByPlayer());
+        ST.add(getDroidByPlayer());
+        ST.add(getDroidByPlayer());
+
+        TeamVsTeamController control = new TeamVsTeamController(FT, ST, new Arena(0, 0));
+        ArrayList<Droid> winnerTeam = control.startFight();
+
+        System.out.println("--------------");
+        System.out.println("The winner are: ");
+        for (Droid droid : winnerTeam) {
+            System.out.println(droid);
+        }
     }
 
     public Droid getDroidByPlayer() {

@@ -1,3 +1,4 @@
+import java.io.FileReader;
 import java.util.Scanner;
 
 import droidbattle.*;
@@ -14,8 +15,9 @@ public class Main {
         System.out.println(
                 "Let's start our battles of droids. We have 3 types of arenas and droids.\nAlso, two GAME modes.\nThis is what we will choose first!\n");
         System.out.println("ENTER you option:");
-        System.out.println("0. One By One. (1vs1)");
-        System.out.println("1. Team By Team. (Team vs Team)");
+        System.out.println("0. One By One. (1vs1).");
+        System.out.println("1. Team By Team. (Team vs Team).");
+        System.out.println("2. Show last FIGHT.");
         try (Scanner inp = new Scanner(System.in)) {
             int userInput;
             System.out.print("PLAYER: ");
@@ -27,8 +29,15 @@ public class Main {
                     break;
 
                 case 1:
-                https://f21.sstrge.online/remote_control.php?time=1662751053&cv=2f1d438eb08e9edd6596e6d5f0461c7e&lr=0&cv2=f50722893d55950fc47813151f8edca0&file=%2Fvideos%2F595000%2F595027%2F595027_720p.mp4&cv3=2d8ee1a66c0ca6ce75d84c67a50a70e9&cv4=abae2f62caa3629162d454816dc7f478
+                    new DroidBattle().partyBatlle();
+                    break;
 
+                case 2:
+                    FileReader fr = new FileReader("battleLog.txt");
+                    int i;
+                    while ((i = fr.read()) != -1) {
+                        System.out.print((char) i);
+                    }
                     break;
 
                 default:
