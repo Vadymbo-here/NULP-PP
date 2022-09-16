@@ -3,7 +3,19 @@ import java.util.Scanner;
 
 import droidbattle.*;
 
+/**
+ * Code GIT Hub version {@link https://github.com/Vadymbo-here/NULP-PP.git}
+ * 
+ * Here we start our program and calls to diff classes
+ * 
+ * @author Vadym_Bogorodetskyy KN-207
+ */
 public class Main {
+
+    /**
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         System.out.println("WELCOME TO MY VERSION OF A DROID BATTLE");
         System.out.println(
