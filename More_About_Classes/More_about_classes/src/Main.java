@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static ArrayList<House> hArr = new ArrayList<>();
+    private static ArrayList<House> hArr = new ArrayList<>();
 
+    /**
+     * Code GIT Hub version {@link https://github.com/Vadymbo-here/NULP-PP.git}
+     * 
+     * Here we start our program and calls to diff classes
+     * 
+     * @author Vadym_Bogorodetskyy KN-207
+     */
     public static void main(String[] args) {
 
         getInput();
@@ -52,6 +59,9 @@ public class Main {
         }
     }
 
+    /**
+     * @param limit
+     */
     public static void showByRooms(int limit) {
         boolean flag = false;
         for (var room : hArr) {
@@ -65,6 +75,11 @@ public class Main {
         }
     }
 
+    /**
+     * @param limit - min amount of rooms
+     * @param min   - min floor
+     * @param max   - max floor
+     */
     public static void showByRoomsAndFloors(int limit, int min, int max) {
         boolean flag = false;
         for (var room : hArr) {
@@ -78,6 +93,9 @@ public class Main {
         }
     }
 
+    /**
+     * @param limit - min limit of square
+     */
     public static void showBySquare(double limit) {
         boolean flag = false;
         for (var room : hArr) {
