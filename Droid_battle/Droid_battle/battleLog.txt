@@ -1,40 +1,81 @@
 -------------------------------------
 Round 1
-Vasya get hit with 6 damage
-Defender: Vasya health = [98 / 104]
-Attacker: Pupok health = [63 / 63]
+a3 get hit with 37 damage by team.
+TEAM <Defender>: 
+a3 health = [9 / 46]
+a4 health = [48 / 48]
+TEAM <Attacker>: 
+a1 health = [47 / 47]
+a2 health = [142 / 142]
 -------------------------------------
 Round 2
-Vasya get hit with 6 damage
-Defender: Vasya health = [92 / 104]
-Attacker: Pupok health = [63 / 63]
+a3 get hit with 37 damage by team.
+TEAM <Defender>: 
+a3 health = [0 / 46]
+a4 health = [48 / 48]
+TEAM <Attacker>: 
+a1 health = [47 / 47]
+a2 health = [142 / 142]
 -------------------------------------
 Round 3
-Pupok get hit with 22 damage
-Defender: Pupok health = [41 / 63]
-Attacker: Vasya health = [92 / 104]
+a4 get hit with 37 damage by team.
+TEAM <Defender>: 
+a3 health = [0 / 46]
+a4 health = [48 / 48]
+TEAM <Attacker>: 
+a1 health = [47 / 47]
+a2 health = [142 / 142]
 -------------------------------------
 Round 4
-Vasya get hit with 6 damage
-Defender: Vasya health = [86 / 104]
-Attacker: Pupok health = [41 / 63]
+a1 get hit with 24 damage by team.
+TEAM <Defender>: 
+a1 health = [23 / 47]
+a2 health = [142 / 142]
+TEAM <Attacker>: 
+a3 health = [0 / 46]
+a4 health = [48 / 48]
 -------------------------------------
 Round 5
-Vasya get hit with 6 damage
-Defender: Vasya health = [80 / 104]
-Attacker: Pupok health = [41 / 63]
+a1 get hit with 24 damage by team.
+TEAM <Defender>: 
+a1 health = [23 / 47]
+a2 health = [142 / 142]
+TEAM <Attacker>: 
+a3 health = [0 / 46]
+a4 health = [48 / 48]
 -------------------------------------
 Round 6
-Pupok get hit with 22 damage
-Defender: Pupok health = [19 / 63]
-Attacker: Vasya health = [80 / 104]
+a4 get hit with 37 damage by team.
+TEAM <Defender>: 
+a3 health = [0 / 46]
+a4 health = [11 / 48]
+TEAM <Attacker>: 
+a1 health = [23 / 47]
+a2 health = [142 / 142]
 -------------------------------------
 Round 7
-Vasya get hit with 6 damage
-Defender: Vasya health = [74 / 104]
-Attacker: Pupok health = [19 / 63]
+a1 get hit with 24 damage by team.
+TEAM <Defender>: 
+a1 health = [23 / 47]
+a2 health = [142 / 142]
+TEAM <Attacker>: 
+a3 health = [0 / 46]
+a4 health = [11 / 48]
 -------------------------------------
 Round 8
-Pupok get hit with 22 damage
-Defender: Pupok health = [0 / 63]
-Attacker: Vasya health = [74 / 104]
+a1 get hit with 24 damage by team.
+TEAM <Defender>: 
+a1 health = [0 / 47]
+a2 health = [142 / 142]
+TEAM <Attacker>: 
+a3 health = [0 / 46]
+a4 health = [11 / 48]
+-------------------------------------
+Round 9
+a4 get hit with 21 damage by team.
+TEAM <Defender>: 
+a3 health = [0 / 46]
+a4 health = [0 / 48]
+TEAM <Attacker>: 
+a1 health = [0 / 47]
+a2 health = [142 / 142]
