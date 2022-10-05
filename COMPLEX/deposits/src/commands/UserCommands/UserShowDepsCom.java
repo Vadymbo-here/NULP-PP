@@ -1,6 +1,7 @@
 package commands.UserCommands;
 
 import userclass.User;
+
 import commands.Command;
 
 public class UserShowDepsCom implements Command {
@@ -12,7 +13,7 @@ public class UserShowDepsCom implements Command {
 
     @Override
     public void execute(String[] arr) {
-        b.ShowDepCases(arr);
+        b.ShowDepCases();
     }
 
     @Override

@@ -12,7 +12,7 @@ public class BankShowDepsCom implements Command {
 
     @Override
     public void execute(String[] arr) {
-        b.ShowDepCases(arr);
+        b.ShowDepCases();
     }
 
     @Override

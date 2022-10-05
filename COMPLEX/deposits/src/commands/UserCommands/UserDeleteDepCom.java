@@ -1,13 +1,19 @@
 package commands.UserCommands;
 
 import userclass.User;
+
+import java.util.ArrayList;
+
+import banking.Bank;
 import commands.Command;
 
 public class UserDeleteDepCom implements Command {
     private User b;
-
-    public UserDeleteDepCom(User b) {
+    ArrayList<Bank> banksBank;
+    
+    public UserDeleteDepCom(User b, ArrayList<Bank> banksBank) {
         this.b = b;
+        this.banksBank = banksBank;
     }
 
     @Override

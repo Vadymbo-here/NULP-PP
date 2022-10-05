@@ -1,3 +1,4 @@
+import java.util.regex.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ public class Menu {
         System.out
                 .println("Welcome to our DEPOSITS picekr.\n\nWe will help you to finaly pick the best option for you!");
         System.out.println("Register into system.\t If screen freeze hit [Enter]");
-        user.register();
+        // user.register();
         initInfo(user);
         genMenu(user);
     }
@@ -37,7 +38,9 @@ public class Menu {
     public static void initInfo(User user) {
 
         // BANKS
+        String[] temp = { "", "", "Test", "{Test Description}", "17.5", "1" };
         banksBank.add(new Bank(12202, "GrandC"));
+        banksBank.get(0).CreateDepCase(temp);
 
         if (user.getRole() != 0) { // Anyone higher than user
             for (int i = 0; i < banksBank.size(); i++) {
@@ -51,9 +54,10 @@ public class Menu {
         menuItemsU = new HashMap<>();
         menuItemsA = new HashMap<>();
         menuItemsU.put("help me", new HelpCommand(menuItemsU));
-        menuItemsU.put("create dep", new UserCreateDepCom(user));
-        menuItemsU.put("change dep", new UserChangeDepCom(user));
-        menuItemsU.put("del dep", new UserDeleteDepCom(user));
+        menuItemsU.put("create dep", new UserCreateDepCom(user, banksBank));
+        menuItemsU.put("change dep", new UserChangeDepCom(user, banksBank));
+        menuItemsU.put("del dep", new UserDeleteDepCom(user, banksBank));
+        menuItemsU.put("show deals", new UserShowDealsCom(user, banksBank));
         menuItemsU.put("show dep", new UserShowDepsCom(user));
         menuItemsU.put("exit here", new ExitCommand());
         menuItemsA.put("help me", new HelpCommand(menuItemsA));
@@ -74,15 +78,17 @@ public class Menu {
             System.out.println(
                     "Pick your option\n\tShow depsits. - show dep\n\tCreate deposit. - create dep\n\tChange deposit. - change dep\n\tDelete deposit. - del dep");
             String pick = MyScanner.inp();
-            String[] userInput = pick.split(" ");
+
+            String[] userInput = pick.split("[^a-zA-Z0-9.\\{\\}]+(?![^\\{]*\\})");
+
             if (userInput.length < 2) {
-                System.out.println("Wrong Command. Try \"Help\" to see available command with their description.");
+                System.out.println("Wrong Command. Try \"Help me\" to see available command with their description.");
                 continue;
             } else {
                 com = menuItemsU.get(userInput[0] + " " + userInput[1]);
             }
             if (com == null) {
-                System.out.println("Wrong Command. Try \"Help\" to see available command with their description.");
+                System.out.println("Wrong Command. Try \"Help me\" to see available command with their description.");
                 continue;
             } else {
                 switch (user.getRole()) {

@@ -2,6 +2,8 @@ package userclass;
 
 import java.util.ArrayList;
 
+import banking.Bank;
+import banking.DepCase;
 import banking.Deposit;
 import commands.Command;
 import utils.MyScanner;
@@ -21,7 +23,7 @@ public class User {
     // ------------COMMAND SECTION----------------
 
     public User() {
-        this.role = 1;
+        this.role = 0;
         this.bankID = 12202;
     }
 
@@ -120,22 +122,40 @@ public class User {
         return true;
     }
 
-    public void CreateDepCase(String[] arr) {
-        System.out.println("User-Creating case");
-        for (var each : arr) {
-            System.out.println(each);
+    public void ShowDeals(String[] arr, ArrayList<Bank> banksBank) {
+        // show deals {balance} {period_in_da}
+        double balance = Double.parseDouble(arr[2]);
+        int period = Integer.parseInt(arr[3]);
+        for (Bank bank : banksBank) {
+            for (DepCase depCase : bank.getDepShowList()) {
+                System.out.println(depCase.getProfit(balance, period));
+            }
         }
     }
 
+    public void CreateDepCase(String[] arr, ArrayList<Bank> banksBank) {
+        // create dep {BankID} {DepID} {balance} {period_in_days}
+    }
+
     public void ChangeDepCase(String[] arr) {
+        // change dep {hisDepId} {additional money income}
         System.out.println("User-Changing case");
     }
 
     public void DeleteDepCase(String[] arr) {
+        // del dep {hisDepID}
         System.out.println("User-Deleting case");
     }
 
-    public void ShowDepCases(String[] arr) {
-        System.out.println("User-Showing case");
+    public void ShowDepCases() {
+        if (this.userDeps.size() > 0) {
+            System.out.println("");
+            for (Deposit each : this.userDeps) {
+                System.out.println(each);
+            }
+            System.out.println("");
+        } else {
+            System.out.println("\nUse have 0 active deposits. MAybe it's time to create one?\n");
+        }
     }
 }
