@@ -8,7 +8,7 @@ public class ExitCommand implements Command {
 
     @Override
     public String getInfo() {
-        return " - end proces. Full exiting of a proggram.";
+        return " - end proces. Full exiting of a proggram.\n\tExample: exit here";
     }
 
 }

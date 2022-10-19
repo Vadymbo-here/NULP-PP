@@ -19,6 +19,27 @@ The workspace contains two folders by default, where:
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
+
+## JsonWorker Structure
+<h2>Show list and description of methods</h2>
+<ul>
+<li>`main` - *just a developer methor to quick test smth*</li>
+<li>`getJsonStringF` - *return a JSON string from a file database*</li>
+<li>`writeToDatabase` - *gets position of array and obj to put it there*</li>
+<li>`writeDepCase` - *create depcase in DB*</li>
+<li>`delDepCase` - *delete depcase from DB*</li>
+<li>`getLen` - *returns array list from specific position*</li>
+<li>`getArrayList` - *Return ARRAYlist form a db.*</li>
+<li>`getBankList` - *Returns filled ArrayList of Bank info.*</li>
+<li>`getFreeSlot` - *return int for ID from a Array in DB*</li>
+<li>`printAllDepCases` - *Print all depcases*</li>
+<li>`changeDepCase` - *yes*</li>
+<li>`registerUser` - *gets data and inputs it in DB*</li>
+<li>`loginUser` - *get login and password and retun User object*</li>
+<li>`main` - **</li>
+<li>`main` - **</li>
+</ui>
+
 ## Dependency Management
 
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).

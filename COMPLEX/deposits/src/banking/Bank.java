@@ -1,8 +1,12 @@
 package banking;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import org.json.JSONException;
+
 import commands.Command;
+import utils.JsonWorker;
 
 public class Bank {
     // ------------COMMAND SECTION----------------
@@ -54,37 +58,61 @@ public class Bank {
         this.depShowList = depShowList;
     }
 
-    public void CreateDepCase(String[] arr) {
+    public void CreateDepCase(String[] arr) throws IOException {
+        if (arr.length < 6) {
+            System.out.println(
+                    "Wrong Command or params. Try \"Help me\" to see available command with their description.");
+            return;
+        }
         arr[3] = arr[3].replace('{', ' ').replace('}', ' ').trim();
-        DepCase temp = new DepCase(depShowList.size() + 1, arr[2], arr[3], arr[4], arr[5]);
-        depShowList.add(temp);
+        // DepCase temp = new DepCase(depShowList.size() + 1, arr[2], arr[3], arr[4],
+        // arr[5]);
+        // new DepCase()
+        // depShowList.add(temp);
+        int type = Integer.parseInt(arr[4]);
+        float perc = Float.parseFloat(arr[5]);
+        int depid = JsonWorker.getFreeSlot("depcases", "depID");
+
+        JsonWorker.writeDepCase(this.BankID, depid, arr[2], arr[3], type, perc);
     }
 
-
     public void ChangeDepCase(String[] arr) {
+        if (arr.length < 5) {
+            System.out.println(
+                    "Wrong Command or params. Try \"Help me\" to see available command with their description.");
+            return;
+        }
         int point = Integer.parseInt(arr[2]);
-        DepCase temp = depShowList.get(point - 1);
-        switch (arr[3]) {
-            case "name":
-                temp.setName(arr[4]);
-                break;
+        arr[4] = arr[4].replace('{', ' ').replace('}', ' ').trim();
+        // DepCase temp = depShowList.get(point - 1);
+        // switch (arr[3]) {
+        // case "name":
+        // temp.setName(arr[4]);
+        // break;
 
-            case "description":
-                temp.setDescription(arr[4]);
-                break;
+        // case "description":
+        // temp.setDescription(arr[4]);
+        // break;
 
-            case "percentage":
-                float tempF = Float.parseFloat(arr[4]);
-                temp.setPercentage(tempF);
-                break;
+        // case "percentage":
+        // float tempF = Float.parseFloat(arr[4]);
+        // temp.setPercentage(tempF);
+        // break;
 
-            case "type":
-                int tempI = Integer.parseInt(arr[4]);
-                temp.setType(tempI);
-                break;
-            default:
-                System.out.println("\nWrong parametr name. No data saved. Try again or use \"help me\".\n");
-                break;
+        // case "type":
+        // int tempI = Integer.parseInt(arr[4]);
+        // temp.setType(tempI);
+        // break;
+        // default:
+        // System.out.println("\nWrong parametr name. No data saved. Try again or use
+        // \"help me\".\n");
+        // break;
+        // }
+
+        try {
+            JsonWorker.changeDepCase(this.BankID, point, arr[3], arr[4]);
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -92,20 +120,23 @@ public class Bank {
     // change dep depID PARAM new value
 
     public void DeleteDepCase(String[] arr) {
-        int point = Integer.parseInt(arr[2]);
-        depShowList.remove(point - 1);
+        if (arr.length < 3) {
+            System.out.println(
+                    "Wrong Command or params. Try \"Help me\" to see available command with their description.");
+            return;
+        }
+        // int point = Integer.parseInt(arr[2]);
+        // depShowList.remove(point - 1);
+
+        try {
+            JsonWorker.delDepCase(this.BankID, Integer.parseInt(arr[2]));
+        } catch (NumberFormatException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void ShowDepCases() {
-        if (this.depShowList.size() > 0) {
-            System.out.println("");
-            for (DepCase each : this.depShowList) {
-                System.out.println(each);
-            }
-            System.out.println("");
-        } else {
-            System.out.println("\nThis bank has no deals at the moment.\n");
-        }
+        JsonWorker.printAllDepCases();
     }
 
 }

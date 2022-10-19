@@ -23,6 +23,6 @@ public class UserCreateDepCom implements Command {
 
     @Override
     public String getInfo() {
-        return " - create new deposit by given paramenters.";
+        return " - create new deposit by given paramenters.\n\tExample: create dep {BankID} {DepID} {balance} {period_in_days}";
     }
 }

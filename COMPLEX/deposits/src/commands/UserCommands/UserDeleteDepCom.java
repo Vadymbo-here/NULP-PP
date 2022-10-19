@@ -10,7 +10,7 @@ import commands.Command;
 public class UserDeleteDepCom implements Command {
     private User b;
     ArrayList<Bank> banksBank;
-    
+
     public UserDeleteDepCom(User b, ArrayList<Bank> banksBank) {
         this.b = b;
         this.banksBank = banksBank;
@@ -23,6 +23,6 @@ public class UserDeleteDepCom implements Command {
 
     @Override
     public String getInfo() {
-        return " - close your active deposit but without planned profit. Your profit will be RECALCULATED according to  \"Do pitannya\" plan.";
+        return " - close your active deposit but without planned profit. Your profit will be RECALCULATED according to  \"Do pitannya\" plan.\n\tExample: del dep {bankID} {depId}";
     }
 }

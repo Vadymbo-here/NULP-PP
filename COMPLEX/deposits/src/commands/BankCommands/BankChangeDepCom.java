@@ -17,6 +17,6 @@ public class BankChangeDepCom implements Command {
 
     @Override
     public String getInfo() {
-        return " - change some paraments into a specific deal.";
+        return " - change some paraments into a specific deal.\n\tExample: change dep {depID} {key} {newVal}.";
     }
 }

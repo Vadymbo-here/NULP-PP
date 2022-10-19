@@ -1,7 +1,8 @@
-import java.util.regex.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+
+import utils.JsonWorker;
 import utils.MyScanner;
 
 import banking.Bank;
@@ -27,7 +28,31 @@ public class Menu {
         System.out
                 .println("Welcome to our DEPOSITS picekr.\n\nWe will help you to finaly pick the best option for you!");
         System.out.println("Register into system.\t If screen freeze hit [Enter]");
-        // user.register();
+        System.out.println("Do you already have an account? [Yes/No]");
+        String input = MyScanner.inp();
+        switch (input) {
+            case "yes":
+            case "Yes":
+            case "y":
+            case "Y":
+                do {
+                    user = user.login();
+                    if (user.getUserID() == 0) {
+                        System.out.println("Incorrect data. Check your password or login\n\n");
+                    }
+                } while (user.getUserID() == 0);
+                break;
+            case "no":
+            case "No":
+            case "n":
+            case "N":
+                user.register();
+                break;
+            default:
+                System.out.println("wrong input.");
+                initUser(user);
+                break;
+        }
         initInfo(user);
         genMenu(user);
     }
@@ -38,9 +63,11 @@ public class Menu {
     public static void initInfo(User user) {
 
         // BANKS
-        String[] temp = { "", "", "Test", "{Test Description}", "17.5", "1" };
-        banksBank.add(new Bank(12202, "GrandC"));
-        banksBank.get(0).CreateDepCase(temp);
+
+        // String[] temp = { "", "", "Test", "{Test Description}", "17.5", "1" };
+        // banksBank.add(new Bank(12202, "GrandC"));
+        // banksBank.get(0).CreateDepCase(temp);
+        banksBank = JsonWorker.getBankList();
 
         if (user.getRole() != 0) { // Anyone higher than user
             for (int i = 0; i < banksBank.size(); i++) {

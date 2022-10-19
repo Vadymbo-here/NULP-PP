@@ -17,6 +17,6 @@ public class BankDeleteDepCom implements Command {
 
     @Override
     public String getInfo() {
-        return " - delete specific deposit deal from a list.";
+        return " - delete specific deposit deal from a list.\n\tExample: delete dep {depid}.";
     }
 }

@@ -17,6 +17,6 @@ public class BankShowDepsCom implements Command {
 
     @Override
     public String getInfo() {
-        return " - show all active deposit deals in a bank.";
+        return " - show all active deposit deals in a bank.\nExample: show dep.";
     }
 }

@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // TODO Auto-generated method stub
         Button btn = new Button();
         btn.setText("Random number");
         btn.setOnAction(new EventHandler<ActionEvent>() {

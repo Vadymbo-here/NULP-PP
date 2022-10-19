@@ -20,9 +20,9 @@ public class UserChangeDepCom implements Command {
     public void execute(String[] arr) {
         b.ChangeDepCase(arr);
     }
-    
+
     @Override
     public String getInfo() {
-        return " - change deposit balance amount for bigger percantage income.";
+        return " - change deposit balance amount for bigger percantage income.\n\tExample: change dep {bankid} {hisDepId} {additional money income}";
     }
 }

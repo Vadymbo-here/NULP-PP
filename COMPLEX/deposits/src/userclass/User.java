@@ -1,11 +1,13 @@
 package userclass;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import banking.Bank;
 import banking.DepCase;
 import banking.Deposit;
 import commands.Command;
+import utils.JsonWorker;
 import utils.MyScanner;
 
 public class User {
@@ -33,11 +35,11 @@ public class User {
 
     private ArrayList<Deposit> userDeps = new ArrayList<>();
 
-    public User(int userID, int role, String Firstname, String Lastname, String login, String password) {
+    public User(int userID, int role, String firstName, String lastName, String login, String password) {
         this.userID = userID;
         this.role = role;
-        this.Firstname = Firstname;
-        this.Lastname = Lastname;
+        this.Firstname = firstName;
+        this.Lastname = lastName;
         this.login = login;
         this.password = password;
     }
@@ -106,56 +108,132 @@ public class User {
         this.password = password;
     }
 
-    public Boolean login(String login, String password) {
-        return login.equals(this.login) && password.equals(this.password);
+    public User login() {
+        User user = new User();
+        System.out.println("Enter your login and password.");
+        String login = MyScanner.inp();
+        String password = MyScanner.inp();
+        user = JsonWorker.loginUser(login, password);
+        return user;
     }
 
     public Boolean register() {
-        MyScanner.scaner.nextLine();
         System.out.println("Write your first name and last name");
-        this.setFirstname(MyScanner.inp());
-        this.setLastname(MyScanner.inp());
+        String fname = MyScanner.inp();
+        String lname = MyScanner.inp();
         System.out.println("Good. Now we will need you to provide a login and a password.");
-        this.setLogin(MyScanner.inp());
-        this.setPassword(MyScanner.inp());
+        String login = MyScanner.inp();
+        String password = MyScanner.inp();
+        try {
+            JsonWorker.registerUser(fname, lname, login, password);
+        } catch (IOException e) {
+            System.out.println("Failed to register a user");
+            e.printStackTrace();
+            return false;
+        }
         System.out.println("Great! Welcome to our system, " + this.Firstname);
         return true;
     }
 
     public void ShowDeals(String[] arr, ArrayList<Bank> banksBank) {
+        if (arr.length < 4) {
+            System.out.println(
+                    "Wrong Command or params. Try \"Help me\" to see available command with their description.");
+            return;
+        }
         // show deals {balance} {period_in_da}
-        double balance = Double.parseDouble(arr[2]);
-        int period = Integer.parseInt(arr[3]);
-        for (Bank bank : banksBank) {
-            for (DepCase depCase : bank.getDepShowList()) {
-                System.out.println(depCase.getProfit(balance, period));
+        double balance = 1000;
+        int period = 30;
+        try {
+            balance = Double.parseDouble(arr[2]);
+            period = Integer.parseInt(arr[3]);
+        } catch (Exception e) {
+            System.out.println("There is no such element. Check you params.");
+        }
+        ArrayList<DepCase> depCases = JsonWorker.getDepCaseList();
+        // Sorting
+        int n = depCases.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (depCases.get(j).getProfit(1000, 30) < depCases.get(j + 1).getProfit(1000, 30)) {
+                    DepCase tmp = depCases.get(j);
+                    depCases.set(j, depCases.get(j + 1));
+                    depCases.set(j + 1, tmp);
+                }
             }
+        }
+        for (DepCase dCase : depCases) {
+            ArrayList<Bank> banks = JsonWorker.getBankList();
+            String bankName = "None";
+            for (int i = 0; i < banks.size(); i++) {
+                if (banks.get(i).getBankID() == dCase.getBankID()) {
+                    bankName = banks.get(i).getName();
+                }
+            }
+
+            System.out.printf(
+                    "\t====Deposit %s[%d] by %s====\n\tBank ID: %d\n\tProfit: %.4f\n\n",
+                    dCase.getName(),
+                    dCase.getDepID(),
+                    bankName,
+                    dCase.getBankID(),
+                    dCase.getProfit(balance, period));
         }
     }
 
     public void CreateDepCase(String[] arr, ArrayList<Bank> banksBank) {
         // create dep {BankID} {DepID} {balance} {period_in_days}
+        if (arr.length < 5) {
+            System.out.println(
+                    "Wrong Command or params. Try \"Help me\" to see available command with their description.");
+            return;
+        }
+        try {
+            int bankID = Integer.parseInt(arr[2]);
+            int depID = Integer.parseInt(arr[3]);
+            int days = Integer.parseInt(arr[5]);
+            double balance = Double.parseDouble(arr[4]);
+            JsonWorker.inputDeposit(this.userID, bankID, depID, balance, days);
+        } catch (Exception e) {
+            System.out.println("There is no such element. Check you params.");
+        }
     }
 
     public void ChangeDepCase(String[] arr) {
-        // change dep {hisDepId} {additional money income}
-        System.out.println("User-Changing case");
+        // change dep {bankid} {hisDepId} {additional money income}
+        if (arr.length < 5) {
+            System.out.println(
+                    "Wrong Command or params. Try \"Help me\" to see available command with their description.");
+            return;
+        }
+        try {
+            int bankid = Integer.parseInt(arr[2]);
+            int depID = Integer.parseInt(arr[3]);
+            JsonWorker.updateDeposit(this.userID, bankid, depID, arr[4]);
+        } catch (Exception e) {
+            System.out.println("There is no such element. Check you params.");
+        }
     }
 
     public void DeleteDepCase(String[] arr) {
+        if (arr.length < 4) {
+            System.out.println(
+                    "Wrong Command or params. Try \"Help me\" to see available command with their description.");
+            return;
+        }
         // del dep {hisDepID}
-        System.out.println("User-Deleting case");
+        // System.out.println("User-Deleting case");
+        try {
+            int bankid = Integer.parseInt(arr[2]);
+            int depID = Integer.parseInt(arr[3]);
+            JsonWorker.delDeposit(this.userID, bankid, depID);
+        } catch (Exception e) {
+            System.out.println("There is no such element. Check you params.");
+        }
     }
 
     public void ShowDepCases() {
-        if (this.userDeps.size() > 0) {
-            System.out.println("");
-            for (Deposit each : this.userDeps) {
-                System.out.println(each);
-            }
-            System.out.println("");
-        } else {
-            System.out.println("\nUse have 0 active deposits. MAybe it's time to create one?\n");
-        }
+        JsonWorker.printAllDeposits(this.userID);
     }
+
 }

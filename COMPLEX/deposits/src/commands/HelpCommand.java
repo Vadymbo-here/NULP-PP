@@ -14,7 +14,7 @@ public class HelpCommand implements Command {
         System.out.println("<---------------------------->");
         b.forEach((key, value) -> {
             if (!value.getInfo().isEmpty()) {
-                System.out.println(key + value.getInfo());
+                System.out.println("==> " + key + value.getInfo() + "\n");
             }
         });
     }

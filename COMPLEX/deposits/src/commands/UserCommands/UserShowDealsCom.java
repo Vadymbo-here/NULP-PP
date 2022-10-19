@@ -22,7 +22,7 @@ public class UserShowDealsCom implements Command {
 
     @Override
     public String getInfo() {
-        return " - show all available deposit deals for you.";
+        return " - show all available deposit deals for you.\n\tExample: show deals {balance} {period in days}";
     }
 
 }

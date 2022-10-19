@@ -1,16 +1,17 @@
 package banking;
 
 public class DepCase {
-    int depID, type;
+    int depID, type, bankID;
     float percentage;
     String name, description;
 
-    public DepCase(int DepID, String name, String description, float percentage, int type) {
+    public DepCase(int DepID, String name, String description, float percentage, int type, int bankID) {
         this.depID = DepID;
         this.name = name;
         this.description = description;
         this.percentage = percentage;
         this.type = type;
+        this.bankID = bankID;
     }
 
     public DepCase(int DepID, String name2, String description2, String string, String string2) {
@@ -19,6 +20,14 @@ public class DepCase {
         this.description = description2;
         this.percentage = Float.parseFloat(string);
         this.type = Integer.parseInt(string2);
+    }
+
+    public int getBankID() {
+        return bankID;
+    }
+
+    public void setBankID(int bankID) {
+        this.bankID = bankID;
     }
 
     public int getDepID() {
@@ -77,7 +86,8 @@ public class DepCase {
                 break;
             case 1:
                 // Monthly capatalization / 100
-                res = balance * Math.pow(((this.percentage / 100) / 12), Math.floor(period / 30));
+                res = balance * Math.pow((1 + (this.percentage / 1200)), (int) (period / 30));
+                res -= balance;
                 break;
 
             default:

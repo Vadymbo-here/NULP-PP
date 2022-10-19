@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch JsonWorker",
+            "request": "launch",
+            "mainClass": "utils.JsonWorker",
+            "projectName": "deposits_6645644f"
+        },
+        {
+            "type": "java",
             "name": "Launch Base",
             "request": "launch",
             "mainClass": "Base",

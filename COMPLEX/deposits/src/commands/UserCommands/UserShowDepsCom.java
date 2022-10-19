@@ -18,6 +18,6 @@ public class UserShowDepsCom implements Command {
 
     @Override
     public String getInfo() {
-        return " - show all your active deposits. Show all one by one in a nice table.";
+        return " - show all your active deposits. Show all one by one in a nice table.\n\tExample: show dep";
     }
 }

@@ -1,0 +1,54 @@
+Date : 2022-10-19 19:08:40
+Directory : d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src
+Total : 23 files,  1246 codes, 57 comments, 249 blanks, all 1552 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         22 |      1,133 |         57 |        249 |      1,439 |
+| JSON     |          1 |        113 |          0 |          0 |        113 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                 | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                    |         23 |      1,246 |         57 |        249 |      1,552 |
+| banking                                                                                              |          3 |        218 |         33 |         69 |        320 |
+| commands                                                                                             |         12 |        212 |          0 |         76 |        288 |
+| commands\BankCommands                                                                                |          4 |         74 |          0 |         25 |         99 |
+| commands\UserCommands                                                                                |          5 |        101 |          0 |         39 |        140 |
+| userclass                                                                                            |          1 |        195 |          8 |         37 |        240 |
+| utils                                                                                                |          2 |        358 |          2 |         43 |        403 |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                             | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\App.class                                   | Java     |          7 |          0 |          0 |          7 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\App.java                                    | Java     |         30 |          0 |          6 |         36 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\Base.java                                   | Java     |          7 |          0 |          1 |          8 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\Menu.java                                   | Java     |        106 |         14 |         17 |        137 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\banking\Bank.java                           | Java     |         83 |         31 |         29 |        143 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\banking\DepCase.java                        | Java     |         78 |          2 |         21 |        101 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\banking\Deposit.java                        | Java     |         57 |          0 |         19 |         76 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\BankCommands\BankChangeDepCom.java | Java     |         17 |          0 |          6 |         23 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\BankCommands\BankCreateDepCom.java | Java     |         23 |          0 |          7 |         30 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\BankCommands\BankDeleteDepCom.java | Java     |         17 |          0 |          6 |         23 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\BankCommands\BankShowDepsCom.java  | Java     |         17 |          0 |          6 |         23 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\Command.java                       | Java     |          5 |          0 |          2 |          7 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\ExitCommand.java                   | Java     |         11 |          0 |          4 |         15 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\HelpCommand.java                   | Java     |         21 |          0 |          6 |         27 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\UserCommands\UserChangeDepCom.java | Java     |         21 |          0 |          8 |         29 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\UserCommands\UserCreateDepCom.java | Java     |         21 |          0 |          8 |         29 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\UserCommands\UserDeleteDepCom.java | Java     |         21 |          0 |          8 |         29 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\UserCommands\UserShowDealsCom.java | Java     |         21 |          0 |          8 |         29 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\commands\UserCommands\UserShowDepsCom.java  | Java     |         17 |          0 |          7 |         24 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\database.json                               | JSON     |        113 |          0 |          0 |        113 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\userclass\User.java                         | Java     |        195 |          8 |         37 |        240 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\utils\JsonWorker.java                       | Java     |        350 |          2 |         39 |        391 |
+| d:\Code\Proggrams\PP_labki1\NULP_PP\COMPLEX\deposits\src\utils\MyScanner.java                        | Java     |          8 |          0 |          4 |         12 |
+| Total                                                                                                |          |      1,246 |         57 |        249 |      1,552 |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
