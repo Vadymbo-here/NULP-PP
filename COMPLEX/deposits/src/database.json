@@ -65,7 +65,7 @@
             "type": 0
         },
         {
-            "bankID": 12202,
+            "bankID": 13456,
             "percentage": 11.2,
             "name": "Marine",
             "description": "Testing test test",
@@ -79,18 +79,17 @@
             "description": "Englist - Gold",
             "depID": 4,
             "type": 0
+        },
+        {
+            "bankID": 13456,
+            "percentage": 10.5,
+            "name": "Sky",
+            "description": "Threis violets in the sky",
+            "depID": 5,
+            "type": 1
         }
     ],
     "deposits": [
-        {
-            "bankID": 12202,
-            "period": 45,
-            "balance": 14330,
-            "depID": 1,
-            "userID": 2,
-            "profit": 0,
-            "start_date": "12.10.2022"
-        },
         {
             "bankID": 13456,
             "period": 65,
@@ -103,11 +102,20 @@
         {
             "bankID": 12202,
             "period": 120,
-            "balance": 1500,
+            "balance": 2500,
             "depID": 3,
             "userID": 2,
             "profit": 0,
             "start_date": "19.10.2022"
+        },
+        {
+            "bankID": 12202,
+            "period": 120,
+            "balance": 15000,
+            "depID": 4,
+            "userID": 3,
+            "profit": 0,
+            "start_date": "20.10.2022"
         }
     ]
 }

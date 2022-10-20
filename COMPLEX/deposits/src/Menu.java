@@ -103,19 +103,19 @@ public class Menu {
             Command com = null;
             System.out.println("<---------------------------->");
             System.out.println(
-                    "Pick your option\n\tShow depsits. - show dep\n\tCreate deposit. - create dep\n\tChange deposit. - change dep\n\tDelete deposit. - del dep");
+                    "Pick your option\n\tShow depsits. - show dep\n\tCreate deposit. - create dep\n\tChange deposit. - change dep\n\tDelete deposit. - del dep\n\tOR use \"help me\"");
             String pick = MyScanner.inp();
 
             String[] userInput = pick.split("[^a-zA-Z0-9.\\{\\}]+(?![^\\{]*\\})");
 
             if (userInput.length < 2) {
-                System.out.println("Wrong Command. Try \"Help me\" to see available command with their description.");
+                System.out.println("Wrong Command. Try \"help me\" to see available command with their description.");
                 continue;
             } else {
                 com = menuItemsU.get(userInput[0] + " " + userInput[1]);
             }
             if (com == null) {
-                System.out.println("Wrong Command. Try \"Help me\" to see available command with their description.");
+                System.out.println("Wrong Command. Try \"help me\" to see available command with their description.");
                 continue;
             } else {
                 switch (user.getRole()) {

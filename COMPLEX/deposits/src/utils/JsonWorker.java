@@ -178,7 +178,7 @@ public class JsonWorker {
                 System.out.println("This bank has no deal for you.");
             }
             for (int j = 0; j < depCaseList.length(); j++) {
-                int bankID2 = depCaseList.getJSONObject(i).getInt("bankID");
+                int bankID2 = depCaseList.getJSONObject(j).getInt("bankID");
                 if (bankID == bankID2) {
                     String type;
                     switch (depCaseList.getJSONObject(j).getInt("type")) {
@@ -197,7 +197,7 @@ public class JsonWorker {
 
                     System.out.printf("------%s------\nOffer:\n%s[%d] - %s\nWhat is it: %s.\n\nYear Percentage: %.2f\n",
                             bankList.getJSONObject(i).getString("name"),
-                            depCaseList.getJSONObject(j).getString("name"),
+                            depCaseList.getJSONObject(i).getString("name"),
                             depCaseList.getJSONObject(j).getInt("depID"),
                             type,
                             depCaseList.getJSONObject(j).getString("description"),
