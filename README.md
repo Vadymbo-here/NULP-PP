@@ -8,8 +8,8 @@ Labaratory task code will be there.
   <li>Work with clases - Done!</li>
   <li>Game Drone Battle - Done!</li>
   <h2>COMPLEX WORK 4-8</h2>
-  <li>Diagrams 1/2 - Code completed.</li>
-  <li>Console window. 1 Part - Code completed.</li>
-  <li></li>
-  <li></li>
+  <li>Diagrams 1/2 - Done!</li>
+  <li>Console window. 1 Part - Done!</li>
+  <li>Full working code - Done!</li>
+  <li>Logging and Emailing - Done!</li>
 </ol>

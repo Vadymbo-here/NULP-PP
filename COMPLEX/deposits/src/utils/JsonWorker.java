@@ -25,7 +25,7 @@ public class JsonWorker {
         FileReader fr;
         String jsonString = "";
         try {
-            fr = new FileReader("src\\database.json");
+            fr = new FileReader("D:\\Code\\Proggrams\\PP_labki1\\NULP_PP\\COMPLEX\\deposits\\src\\database.json");
             int i;
             while ((i = fr.read()) != -1) {
                 jsonString += ((char) i);
@@ -165,55 +165,62 @@ public class JsonWorker {
         return freeSlot;
     }
 
-    public static void printAllDepCases() {
+    public static String printAllDepCases(int bankID) {
+        int i;
         JSONArray bankList = getArrayList("banks");
         JSONArray depCaseList = getArrayList("depcases");
 
         if (bankList.length() == 0) {
-            System.out.println("Your bank doen't exits.");
+            return "Your bank doen't exits.";
         }
-        for (int i = 0; i < bankList.length(); i++) {
-            int bankID = bankList.getJSONObject(i).getInt("bankID");
-            if (depCaseList.length() == 0) {
-                System.out.println("This bank has no deal for you.");
+
+        if (depCaseList.length() == 0) {
+            return "This bank has no deal for you.";
+        }
+
+        for (i = 0; i < bankList.length(); i++) {
+            if (bankList.getJSONObject(i).getInt("bankID") == bankID) {
+                break;
             }
-            for (int j = 0; j < depCaseList.length(); j++) {
-                int bankID2 = depCaseList.getJSONObject(j).getInt("bankID");
-                if (bankID == bankID2) {
-                    String type;
-                    switch (depCaseList.getJSONObject(j).getInt("type")) {
-                        case 0:
-                            type = "Without Capitalization";
-                            break;
+        }
 
-                        case 1:
-                            type = "With Capitalization";
-                            break;
+        for (int j = 0; j < depCaseList.length(); j++) {
+            int bankID2 = depCaseList.getJSONObject(j).getInt("bankID");
+            if (bankID == bankID2) {
+                String type;
+                switch (depCaseList.getJSONObject(j).getInt("type")) {
+                    case 0:
+                        type = "Without Capitalization";
+                        break;
 
-                        default:
-                            type = "";
-                            break;
-                    }
+                    case 1:
+                        type = "With Capitalization";
+                        break;
 
-                    System.out.printf("------%s------\nOffer:\n%s[%d] - %s\nWhat is it: %s.\n\nYear Percentage: %.2f\n",
-                            bankList.getJSONObject(i).getString("name"),
-                            depCaseList.getJSONObject(i).getString("name"),
-                            depCaseList.getJSONObject(j).getInt("depID"),
-                            type,
-                            depCaseList.getJSONObject(j).getString("description"),
-                            depCaseList.getJSONObject(j).getFloat("percentage"));
+                    default:
+                        type = "";
+                        break;
                 }
+
+                System.out.printf("------%s------\nOffer:\n%s[%d] - %s\nWhat is it: %s.\n\nYear Percentage: %.2f\n",
+                        bankList.getJSONObject(i).getString("name"),
+                        depCaseList.getJSONObject(i).getString("name"),
+                        depCaseList.getJSONObject(j).getInt("depID"),
+                        type,
+                        depCaseList.getJSONObject(j).getString("description"),
+                        depCaseList.getJSONObject(j).getFloat("percentage"));
             }
         }
+
+        return "Command executed succesfully";
     }
 
     // ADMIN
-    public static void changeDepCase(int bankID, int depID, String key, String newValue)
+    public static String changeDepCase(int bankID, int depID, String key, String newValue)
             throws JSONException, IOException {
         JSONArray depCaseList = getArrayList("depcases");
         if (depCaseList.isEmpty()) { // error
-            System.out.println("There is no depCases to change.");
-            return;
+            return "There is no depCases to change.";
         }
         for (int i = 0; i < depCaseList.length(); i++) {
             JSONObject depCase = depCaseList.getJSONObject(i);
@@ -242,10 +249,11 @@ public class JsonWorker {
                 }
                 delDepCase(bankID, depID);
                 writeToDatabase("depcases", depCase);
-                System.out.println("Succesfully changed " + key + " in Depcase[" + depID + "]");
-                break;
+                return "Succesfully changed " + key + " in Depcase[" + depID + "]";
             }
         }
+        return "Error occupied!";
+
     }
 
     public static void registerUser(String fName, String sName, String login, String password)
@@ -281,7 +289,7 @@ public class JsonWorker {
         return tmp;
     }
 
-    public static void inputDeposit(int userID, int bankID, int depID, double balance, int days) throws IOException {
+    public static String inputDeposit(int userID, int bankID, int depID, double balance, int days) throws IOException {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDateTime now = LocalDateTime.now();
         JSONArray deps = getArrayList("deposits");
@@ -294,7 +302,7 @@ public class JsonWorker {
             }
         }
         if (isCreated) {
-            return;
+            return "Element is already created.";
         }
         dep.put("bankID", bankID);
         dep.put("period", days);
@@ -305,14 +313,14 @@ public class JsonWorker {
         dep.put("start_date", dtf.format(now));
 
         writeToDatabase("deposits", dep);
+        return "Command executed succesfully.";
     }
 
-    public static void delDeposit(int userID, int bankID, int depID) throws IOException {
+    public static String delDeposit(int userID, int bankID, int depID) throws IOException {
         JSONObject main = new JSONObject(getJsonStringF());
         JSONArray mm = main.getJSONArray("deposits");
         if (mm.isEmpty()) {// error
-            System.out.println("Thre is no deposit to delete.");
-            return;
+            return "There is no deposit to delete.";
         }
         for (int i = 0; i < mm.length(); i++) {
             try {
@@ -321,18 +329,18 @@ public class JsonWorker {
                     mm.remove(i);
                 }
             } catch (Exception e) {
-                System.out.println("There is no such element. Check you params.");
+                return "There is no such element. Check you params.";
             }
         }
         updateDatabase(main);
+        return "Command executed succesfully";
     }
 
-    public static void printAllDeposits(int userID) {
+    public static String printAllDeposits(int userID) {
         ArrayList<Deposit> deps = getDepList();
         ArrayList<Bank> banks = getBankList();
         if (deps.isEmpty()) {// error
-            System.out.println("Looks like there is no deposits.");
-            return;
+            return "Looks like there is no deposits.";
         }
         System.out.println("Your active deposits:");
         boolean flag = false;
@@ -358,18 +366,17 @@ public class JsonWorker {
             }
         }
         if (!flag) {
-            System.out.println("Looks like you have no active deposits. Maybe it's time to make one?");
+            return "Looks like you have no active deposits. Maybe it's time to make one?";
         }
-
+        return "Command executed succesfully";
     }
 
     // USER
-    public static void updateDeposit(int userID, int bankID, int depID, String newval) throws IOException {
+    public static String updateDeposit(int userID, int bankID, int depID, String newval) throws IOException {
         JSONArray deps = getArrayList("deposits");
         JSONObject dep = new JSONObject();
         if (deps.isEmpty()) {
-            System.out.println("There is nothing to change.");
-            return;
+            return "There is nothing to change.";
         }
         for (int i = 0; i < deps.length(); i++) {
             dep = deps.getJSONObject(i);
@@ -379,12 +386,12 @@ public class JsonWorker {
                     dep.put("balance", newbal);
                     delDeposit(userID, bankID, depID);
                     writeToDatabase("deposits", dep);
-                    return;
+                    return "Command executed succesfully.";
                 }
             } catch (Exception e) {
-                System.out.println("There is no such element. Check you params.");
-                return;
+                return "There is no such element. Check you params.";
             }
         }
+        return "Command executed succesfully";
     }
 }

@@ -11,6 +11,8 @@
         "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx.controls.jar",
         "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx.fxml.jar",
         "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx.graphics.jar",
-        "c:\\Users\\Vadym\\Downloads\\json-20220924.jar"
+        "c:\\Users\\Vadym\\Downloads\\json-20220924.jar",
+        "c:\\Users\\Vadym\\Downloads\\javax.activation-1.2.0.jar",
+        "c:\\Users\\Vadym\\Downloads\\javax.mail.jar"
     ]
 }

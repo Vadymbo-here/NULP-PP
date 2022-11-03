@@ -1,0 +1,121 @@
+{
+    "banks": [
+        {
+            "bankID": 12202,
+            "name": "GrandC"
+        },
+        {
+            "bankID": 13456,
+            "name": "Mayhaten"
+        }
+    ],
+    "users": [
+        {
+            "firstName": "Vadym",
+            "lastName": "Bog",
+            "bankID": 12202,
+            "password": "admin",
+            "role": 1,
+            "login": "Sney",
+            "userID": 1
+        },
+        {
+            "firstName": "Vadym",
+            "lastName": "Bog",
+            "bankID": 13456,
+            "password": "admin",
+            "role": 1,
+            "login": "Sney2",
+            "userID": 100
+        },
+        {
+            "firstName": "Ivanka",
+            "lastName": "Bogdanka",
+            "bankID": 0,
+            "password": "asd",
+            "role": 0,
+            "login": "asd",
+            "userID": 2
+        },
+        {
+            "firstName": "Greg",
+            "lastName": "Harnold",
+            "bankID": 0,
+            "password": "a1sd",
+            "role": 0,
+            "login": "Greggy",
+            "userID": 3
+        }
+    ],
+    "depcases": [
+        {
+            "bankID": 12202,
+            "percentage": 13.5,
+            "name": "Jordan",
+            "description": "Testing test test",
+            "depID": 1,
+            "type": 1
+        },
+        {
+            "bankID": 13456,
+            "percentage": 11.2,
+            "name": "Marine",
+            "description": "Testing test test",
+            "depID": 2,
+            "type": 0
+        },
+        {
+            "bankID": 12202,
+            "percentage": 17.4,
+            "name": "Zoloto",
+            "description": "Englist - Gold",
+            "depID": 4,
+            "type": 0
+        },
+        {
+            "bankID": 13456,
+            "percentage": 10.5,
+            "name": "Sky",
+            "description": "Threis violets in the sky",
+            "depID": 5,
+            "type": 1
+        },
+        {
+            "bankID": 12202,
+            "percentage": 1.2,
+            "name": "Hyi",
+            "description": "123 sf 4",
+            "depID": 6,
+            "type": 0
+        }
+    ],
+    "deposits": [
+        {
+            "bankID": 13456,
+            "period": 65,
+            "balance": 21200,
+            "depID": 2,
+            "userID": 2,
+            "profit": 0,
+            "start_date": "12.10.2022"
+        },
+        {
+            "bankID": 12202,
+            "period": 120,
+            "balance": 2500,
+            "depID": 3,
+            "userID": 2,
+            "profit": 0,
+            "start_date": "19.10.2022"
+        },
+        {
+            "bankID": 12202,
+            "period": 120,
+            "balance": 15000,
+            "depID": 4,
+            "userID": 3,
+            "profit": 0,
+            "start_date": "20.10.2022"
+        }
+    ]
+}
