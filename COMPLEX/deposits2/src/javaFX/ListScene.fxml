@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #2C3639;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ListController">
+   <children>
+      <Pane layoutX="14.0" layoutY="63.0" prefHeight="291.0" prefWidth="399.0" style="-fx-background-color: #3F4E4F; -fx-border-radius: 100%;" AnchorPane.rightAnchor="186.8">
+         <children>
+            <Label layoutX="22.0" text="Available deposits to manipulate" textFill="#b09b71">
+               <font>
+                  <Font name="Ebrima Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="infoLabel" layoutX="22.0" layoutY="60.0" textFill="RED" />
+            <ListView fx:id="mainListView" layoutX="13.0" layoutY="28.0" prefHeight="249.0" prefWidth="373.0" style="-fx-background-color: #3F4E4F;" />
+            <Button layoutX="116.0" layoutY="138.0" mnemonicParsing="false" onAction="#loadList" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #A27B5C;" text="Load data" textFill="#dcd7c9">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="8.0" prefHeight="55.0" prefWidth="183.0" text="DEPOSITOR" textAlignment="CENTER" textFill="#b09b71">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="68.0" fitWidth="58.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@qr-code.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="517.0" layoutY="340.0" text="depositor™" textFill="#dcd7c9" />
+      <Button fx:id="calcButton" layoutX="431.0" layoutY="64.0" mnemonicParsing="false" onAction="#startCalcuation" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #A27B5C;" text="Calculator" textFill="#dcd7c9">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="431.0" layoutY="107.0" mnemonicParsing="false" onAction="#deleteDep" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #A27B5C;" text="Delete Dep" textFill="#dcd7c9">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="431.0" layoutY="150.0" mnemonicParsing="false" onAction="#addBalanceToDep" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #A27B5C;" text="Add Balance" textFill="#dcd7c9">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="mainField" layoutX="431.0" layoutY="256.0" prefHeight="32.0" prefWidth="152.0" promptText="123" style="-fx-background-color: #B09B71;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Button fx:id="mainEnter" layoutX="432.0" layoutY="299.0" mnemonicParsing="false" onAction="#finishEntering" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #A27B5C;" text="Enter" textFill="#dcd7c9">
+         <font>
+            <Font name="Ebrima" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -6,6 +6,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Base",
+            "request": "launch",
+            "mainClass": "Base"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App"
+        },
+        {
+            "type": "java",
             "name": "Launch JsonWorker",
             "request": "launch",
             "mainClass": "utils.JsonWorker",

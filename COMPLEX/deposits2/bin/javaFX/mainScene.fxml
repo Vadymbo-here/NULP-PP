@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #2C3639;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Pane layoutX="350.0" layoutY="56.0" prefHeight="262.0" prefWidth="226.0" style="-fx-background-color: #3F4E4F; -fx-border-radius: 100%;" AnchorPane.rightAnchor="23.600000000000023">
+         <children>
+            <TextField fx:id="passwordTxtField" layoutX="22.0" layoutY="115.0" prefHeight="32.0" prefWidth="183.0" promptText="Password" style="-fx-background-color: #B09B71;">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <TextField fx:id="loginTxtField" layoutX="22.0" layoutY="69.0" prefHeight="32.0" prefWidth="183.0" promptText="Login" style="-fx-background-color: #B09B71;" />
+            <Label layoutX="33.0" layoutY="7.0" text="Start your jorney" textFill="#b09b71">
+               <font>
+                  <Font name="Ebrima" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="signUpBtn" layoutX="122.0" layoutY="192.0" mnemonicParsing="false" onAction="#startSignUp" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: #A27B5C;" text="Sign Up" textFill="#dcd7c9">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="infoLabel" layoutX="22.0" layoutY="60.0" textFill="RED" />
+            <Button fx:id="loginBtn" layoutX="22.0" layoutY="192.0" mnemonicParsing="false" onAction="#startLogin" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: #A27B5C;" text="Login" textFill="#dcd7c9">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="68.0" fitWidth="58.0" layoutX="22.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@qr-code.png" />
+         </image>
+      </ImageView>
+      <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="103.0" prefHeight="245.0" prefWidth="253.0" text="Here is deposit managment system &quot;Depositor&quot;. This programm will help you to undestand what deposit is best for you, where and how you can get it and make MAX profits. The program was developed by sudent of Lviv National Polytecnic for his exams. Don't mind if you will have some problems using the programm it's still in the beta." textFill="#dcd7c9" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="517.0" layoutY="340.0" text="depositor™" textFill="#dcd7c9" />
+      <Label layoutX="80.0" layoutY="15.0" prefHeight="70.0" prefWidth="267.0" text="DEPOSITOR" textAlignment="CENTER" textFill="#b09b71">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
