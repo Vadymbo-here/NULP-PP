@@ -89,8 +89,6 @@ public class Controller {
             stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
             scene = new Scene(root);
             stage.setUserData(user);
-            // DELETE
-            System.out.println(user.getUserID());
 
             stage.setScene(scene);
             stage.show();

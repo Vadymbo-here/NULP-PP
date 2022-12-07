@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -50,7 +51,7 @@
             <Font name="Ebrima" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="431.0" layoutY="150.0" mnemonicParsing="false" onAction="#addBalanceToDep" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #A27B5C;" text="Add Balance" textFill="#dcd7c9">
+      <Button fx:id="thirdBtn" layoutX="431.0" layoutY="150.0" mnemonicParsing="false" onAction="#addBalanceToDep" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #A27B5C;" text="Add Balance" textFill="#dcd7c9">
          <font>
             <Font name="Ebrima" size="14.0" />
          </font>
@@ -65,5 +66,6 @@
             <Font name="Ebrima" size="14.0" />
          </font>
       </Button>
+      <ChoiceBox fx:id="myChoiceBox" layoutX="431.0" layoutY="217.0" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #B09B71;" />
    </children>
 </AnchorPane>

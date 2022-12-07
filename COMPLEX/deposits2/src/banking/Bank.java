@@ -63,10 +63,7 @@ public class Bank {
             return "Wrong Command or params. Try \"Help me\" to see available command with their description.";
         }
         arr[3] = arr[3].replace('{', ' ').replace('}', ' ').trim();
-        // DepCase temp = new DepCase(depShowList.size() + 1, arr[2], arr[3], arr[4],
-        // arr[5]);
-        // new DepCase()
-        // depShowList.add(temp);
+
         int type = Integer.parseInt(arr[4]);
         float perc = Float.parseFloat(arr[5]);
         int depid = JsonWorker.getFreeSlot("depcases", "depID");
@@ -90,19 +87,14 @@ public class Bank {
         try {
             return JsonWorker.changeDepCase(this.BankID, point, arr[3], arr[4]);
         } catch (JSONException | IOException e) {
-            return "Error occupied.";
+            return "Error occupied!";
         }
     }
-
-    // name, description, percantage, type
-    // change dep depID PARAM new value
 
     public String DeleteDepCase(String[] arr) {
         if (arr.length < 3) {
             return "Wrong Command or params. Try \"Help me\" to see available command with their description.";
         }
-        // int point = Integer.parseInt(arr[2]);
-        // depShowList.remove(point - 1);
 
         try {
             JsonWorker.delDepCase(this.BankID, Integer.parseInt(arr[2]));

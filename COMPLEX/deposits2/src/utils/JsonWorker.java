@@ -215,6 +215,61 @@ public class JsonWorker {
         return "Command executed succesfully";
     }
 
+    public static String[] printAllDepCasesToArr(int bankID) {
+        int i;
+        String[] out = new String[25];
+        JSONArray bankList = getArrayList("banks");
+        JSONArray depCaseList = getArrayList("depcases");
+
+        if (bankList.length() == 0) {
+            out[0] = "Your bank doen't exits.";
+            return out;
+        }
+
+        if (depCaseList.length() == 0) {
+            out[0] = "This bank has no deal for you.";
+            return out;
+        }
+
+        for (i = 0; i < bankList.length(); i++) {
+            if (bankList.getJSONObject(i).getInt("bankID") == bankID) {
+                break;
+            }
+        }
+
+        String item;
+        for (int j = 0; j < depCaseList.length(); j++) {
+            int bankID2 = depCaseList.getJSONObject(j).getInt("bankID");
+            if (bankID == bankID2) {
+                String type;
+                switch (depCaseList.getJSONObject(j).getInt("type")) {
+                    case 0:
+                        type = "Without Capitalization";
+                        break;
+
+                    case 1:
+                        type = "With Capitalization";
+                        break;
+
+                    default:
+                        type = "";
+                        break;
+                }
+
+                item = String.format("------%s------\nOffer:\n%s[%d] - %s\nWhat is it: %s.\n\nYear Percentage: %.2f\n",
+                        bankList.getJSONObject(i).getString("name"),
+                        depCaseList.getJSONObject(j).getString("name"),
+                        depCaseList.getJSONObject(j).getInt("depID"),
+                        type,
+                        depCaseList.getJSONObject(j).getString("description"),
+                        depCaseList.getJSONObject(j).getFloat("percentage"));
+                out[j] = item;
+            }
+        }
+
+        return out;
+    }
+
     // ADMIN
     public static String changeDepCase(int bankID, int depID, String key, String newValue)
             throws JSONException, IOException {

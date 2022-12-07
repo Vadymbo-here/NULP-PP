@@ -27,6 +27,7 @@ public class CalcController implements Initializable {
     @FXML
     private Button createDepBtn;
 
+
     private User user;
     private Stage stage;
     private Scene scene;
@@ -94,13 +95,11 @@ public class CalcController implements Initializable {
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 currListItem = profitListView.getSelectionModel().getSelectedItem()
                         .split("[a-zA-Z\\[\\n\\t:\\] =]+");
-                // for (int i = 0; i < currListItem.length; i++) {
-                // System.out.printf("%d -> %s\n", i, currListItem[i]);
-                // }
+
                 System.out.println(currListItem[1]);
                 System.out.println(currListItem[2]);
                 createDepBtn.setDisable(false);
-                // бАГ в читання через реджекс, там золота2 робить збій
+
             }
         });
     }
